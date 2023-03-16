@@ -1,0 +1,317 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Presença Liga</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <!--Stylesheet-->
+    <style media="screen">
+        *,
+        *:before,
+        *:after {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #211e36;
+        }
+
+        .background {
+            width: 430px;
+            height: 520px;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 50%;
+        }
+
+        .background .shape {
+            height: 200px;
+            width: 200px;
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .shape:first-child {
+            background: linear-gradient(
+                    #913ffb,
+                    #eb46fc
+            );
+            left: -80px;
+            top: -80px;
+        }
+
+        .shape:last-child {
+            background: linear-gradient(
+                    to right,
+                    #9d09ac,
+                    #f09819
+            );
+            right: -30px;
+            bottom: -80px;
+        }
+
+        form {
+            height: 520px;
+            width: 400px;
+            background-color: rgba(255, 255, 255, 0.13);
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+            padding: 50px 35px;
+        }
+
+        form * {
+            font-family: 'Poppins', sans-serif;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+            outline: none;
+            border: none;
+        }
+
+        form h3 {
+            font-size: 32px;
+            font-weight: 1000;
+            line-height: 42px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 30px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        input {
+            display: block;
+            height: 50px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.07);
+            border-radius: 3px;
+            padding: 0 10px;
+            margin-top: 8px;
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        ::placeholder {
+            color: #e5e5e5;
+        }
+
+        button {
+            margin-top: 50px;
+            width: 100%;
+            background-color: #ffffff;
+            color: #080710;
+            padding: 15px 0;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .center {
+            display: block;
+            margin-top: 40px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 7%;
+        }
+
+        html:hover .spider {
+            top: -10%;
+        }
+
+        .spider {
+            position: absolute;
+            display: inline-block;
+            top: 0;
+            left: 30%;
+
+            /* 4. Animatie */
+            animation: swing 2s infinite;
+            transform-origin: top;
+
+            /* Bonus */
+            transition: 1s ease-in-out;
+        }
+
+        .spider .spiderweb {
+            width: 2px;
+            height: 200px;
+            margin-left: 49px;
+            background: rgba(255, 255, 255, .7);
+        }
+
+        .spider .body {
+            width: 100px;
+            height: 80px;
+            background: #000;
+            position: relative;
+            border-radius: 50%;
+        }
+
+        .spider .body .eye {
+            width: 33px;
+            height: 33px;
+            position: absolute;
+            bottom: 20px;
+            background: #fff;
+            border-radius: 50%;
+        }
+
+        .spider .body .eye.left {
+            left: 15px;
+        }
+
+        .spider .body .eye.right {
+            right: 15px;
+        }
+
+        .spider .body .eye:after {
+            background: #000;
+            width: 7px;
+            height: 7px;
+            content: '';
+            display: block;
+            margin: 55%;
+            border-radius: 50%;
+
+            /* 3. Animatie */
+            animation: look 8s infinite;
+        }
+
+        .spider .legs .leg {
+            width: 80px;
+            height: 40px;
+            margin-top: -20px;
+            border: 5px solid transparent;
+            border-top-color: #000;
+            border-radius: 40px 40px 0 0;
+        }
+
+        .spider .legs {
+            position: absolute;
+            bottom: -10%;
+            z-index: -1;
+        }
+
+        .spider .legs.left {
+            left: -70%;
+        }
+
+        .spider .legs.right {
+            right: -60%;
+        }
+
+
+        .legs.left .leg:nth-child(1) {
+            transform: rotate(10deg);
+            margin-left: 10px;
+        }
+
+        .legs.right .leg:nth-child(1) {
+            transform: rotate(-10deg);
+            margin-left: -10px;
+        }
+
+
+        .legs.left .leg:nth-child(2) {
+            transform: rotate(-20deg);
+            margin-left: 20px;
+        }
+
+        .legs.right .leg:nth-child(2) {
+            transform: rotate(20deg);
+            margin-left: -20px;
+        }
+
+
+        .legs.left .leg:nth-child(3) {
+            transform: rotate(-50deg);
+            margin-left: 30px;
+        }
+
+        .legs.right .leg:nth-child(3) {
+            transform: rotate(50deg);
+            margin-left: -30px;
+        }
+
+        /* 1. Animate */
+        @keyframes look {
+            0%, 40%, 100% {
+                transform: translateX(0);
+            }
+
+            45%, 95% {
+                transform: translateX(-110%);
+            }
+        }
+
+
+        /* 3. Animate */
+        @keyframes swing {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+
+    <div class="spider">
+        <div class="spiderweb"></div>
+        <div class="body">
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+        </div>
+        <div class="legs left">
+            <div class="leg"></div>
+            <div class="leg"></div>
+            <div class="leg"></div>
+        </div>
+        <div class="legs right">
+            <div class="leg"></div>
+            <div class="leg"></div>
+            <div class="leg"></div>
+        </div>
+    </div>
+
+
+<div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+</div>
+<img class="center" src="{% static 'base/images/BRANCO TRANSPARENTE (2).png' %}">
+<form method="POST">
+    {% csrf_token %}
+    <h3>Marque presença!</h3>
+
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" placeholder="Seu nome">
+
+    <label for="codigo">Código de presença</label>
+    <input type="text" id="codigo" name="codigo" placeholder="Coloque aqui o código gerado">
+
+    <button>Registrar presença</button>
+</form>
+</body>
+</html>
