@@ -1,0 +1,1 @@
+web: gunicorn ligalq.wsgi --log-file
