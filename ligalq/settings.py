@@ -72,7 +72,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'ligalq.wsgi.application'
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://web-production-6f2e.up.railway.app'
+    'https://web-production-10d6.up.railway.app'
 ]
 
 # Database
