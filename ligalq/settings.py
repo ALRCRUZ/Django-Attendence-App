@@ -71,6 +71,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ligalq.wsgi.application'
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://web-production-6f2e.up.railway.app/'
+]
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
